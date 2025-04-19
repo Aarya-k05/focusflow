@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h2>Welcome, {{ name }}</h2>
+  <a href="/logout">Logout</a>
+
+  <h3>Today's Sessions</h3>
+  <ul>
+    {% for session in today_sessions %}
+      <li>{{ session.subject }} - {{ session.minutes }} mins at {{ session.time }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Weekly Stats</h3>
+  <ul>
+    {% for day, data in weekly_stats.items() %}
+      <li>{{ day }}: {{ data.sessions }} sessions, {{ data.minutes }} minutes</li>
+    {% endfor %}
+  </ul>
+
+  <a href="/start">Start New Session</a>
+</body>
+</html>
